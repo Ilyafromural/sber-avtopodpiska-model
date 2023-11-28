@@ -1,0 +1,41 @@
+1. Перейти в терминал в папке проекта и вызвать команду uvicorn main:app --reload. Если не сработает, тогда python -m uvicorn main:app --reload
+2. Запустить Postman (Desktop version).
+3. Выполнить запрос статуса. GET/status — возвращает строку 'I’m OK'.
+Выбрать тип запроса GET, в адресной строке ввести status.    
+Нажать SEND, получить результат.
+4. Выполнить запрос версии. GET/version — возвращает словарь, содержащий информацию о модели (название модели, имя автора, версия, дата создания, тип решающего алгоритма и точность, достигнутая на кросс-валидации), в формате:
+{
+                 'name': 'Event action prediction model',
+                 'author': 'Ilya Pachin',
+                 'version': 1,
+                 'date': datetime.now(),
+                 'type': type(pipe.named_steps["classifier"]).__name__,
+                 'roc_auc': score
+            }
+Выбрать тип запроса GET, в адресной строке ввести version.    
+Нажать SEND, получить результат.
+5. Выполнить запрос предсказания модели.
+POST/predict — принимает JSON-объект, содержащий информацию об автомобиле и возвращающий соответствующее предсказание модели.
+Выбрать тип запроса POST, в адресной строке ввести predict.
+Во вкладке body выбрать raw.
+В поле ввода вставить информацию, по форме:
+
+    session_id: str    
+    utm_source: str
+    utm_medium: str
+    utm_campaign: str
+    utm_adcontent: str
+    utm_keyword: str
+    device_category: str
+    device_os: str
+    device_brand: str    
+    device_screen_resolution: str
+    device_browser: str
+    geo_country: str
+    geo_city: str
+
+Нажать SEND, получить результат.
+Примеры JSON-объектов, с которыми работает метод - смотри файлы example_1, example_2
+
+
+

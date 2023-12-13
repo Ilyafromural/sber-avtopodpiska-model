@@ -2,8 +2,6 @@ This ML model is designed to predict whether potential clients will submit an ap
 # Pre-trained models
 There is a pretrained model in the model/ directory
 # Train the model
-## Install dependancies
-pip install -r requirements.txt
 ## Get the data
 Link to the dataset for model training - https://drive.google.com/file/d/1pARi6ICZJxGCV4nmUPHLTAemduMBcwCZ/view?usp=sharing
 ## Run the training
